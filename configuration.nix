@@ -38,49 +38,51 @@
   };
   console.keyMap = "pl2";
   services.printing.enable = true;
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+
+  # Configure Pipewire for audio handling
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    audio.enable = true;
     pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     jack.enable = true;
   };
 
+  security.rtkit.enable = true;
+
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    vim #text editor
-    wget #downloadind files from internet
+    vim # text editor
+    wget # downloading files from internet
     #ungoogled-chromium
-    i2p #secret internet
+    i2p # secret internet
     i2pd
-    xd #torent i2p
-    qFlipper #flopper home app
-    clamtk #antivirus
-    arduino #code editor for electronics
-    aichat #gpt 3.5 in terminal
+    xd # torrent i2p
+    qFlipper # flopper home app
+    clamtk # antivirus
+    arduino # code editor for electronics
+    aichat # gpt 3.5 in terminal
     #tor
-    gimp #immage editor
-    rustc #programing language
-    python3 #programing language
-    rustdesk #remote desktop
-    brave #private browser
+    gimp # image editor
+    rustc # programming language
+    python3 # programming language
+    rustdesk # remote desktop
+    brave # private browser
     opera
-    vscode #code editor
+    vscode # code editor
     python311Packages.pygit2
-    discord #social app
+    discord # social app
     git
-    gnugrep #text search
-    lemmy-ui #social app
-    jack2
+    gnugrep # text search
+    lemmy-ui # social app
+    jackmix # Only include one JACK implementation
     minecraft
     steam
     qemu_full
     virt-manager
-    jackmix
-    jack1
   ];
 
   programs.mtr.enable = true;
@@ -88,7 +90,9 @@
     enable = true;
     enableSSHSupport = true;
   };
+
   system.stateVersion = "23.11"; # Did you read the comment?
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
+
