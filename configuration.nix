@@ -78,17 +78,24 @@
     git
     gnugrep # text search
     lemmy-ui # social app
-    jackmix # Only include one JACK implementation
+    #jackmix # Only include one JACK implementation
     minecraft
     steam
     qemu_full
     virt-manager
+    zip
+    python311Packages.huggingface-hub
+    python311Packages.tkinter
+    python311Packages.optimum
+    #soundux
+    onnxruntime
   ];
 
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+
   };
 
   system.stateVersion = "23.11"; # Did you read the comment?
