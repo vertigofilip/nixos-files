@@ -12,6 +12,7 @@
       ./programing.nix
       ./networking.nix
       ./art.nix
+      ./gaming.nix
     ];
 
   # Bootloader.
@@ -105,6 +106,8 @@
     tldr
     alejandra
     nix-doc
+    ######
+    tts
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
